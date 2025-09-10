@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+    <title>Acme Digital — Company Profile</title>
+    <meta
+      name="description"
+      content="Company profile with contact form and JavaScript validation."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== Header / Navbar ===== -->
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#home" aria-label="Go to Home">
+          <span class="brand-logo" aria-hidden="true">◆</span>
+          <span class="brand-text">Acme<span>Digital</span></span>
+        </a>
+
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          aria-label="Open menu"
+        >
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+        </button>
+
+        <nav id="site-nav" class="site-nav" aria-label="Primary">
+          <a href="#home">Home</a>
+          <a href="#profile">Our Profile</a>
+          <a href="#contact">Message Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ===== Hero / Home ===== -->
+    <main id="home" class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Welcome</p>
+          <h1 class="hero-title">Hi, <span id="greetName">there</span> 👋</h1>
+          <p class="hero-sub">
+            We build reliable, human-centered software for startups and
+            enterprises.
+          </p>
+
+          <!-- Name setter (JS will also remember with localStorage) -->
+          <form id="nameForm" class="name-form" novalidate>
+            <label for="nameInput"
+              >Enter your name to personalize this page:</label
+            >
+            <div class="inline-fields">
+              <input
+                id="nameInput"
+                name="nameInput"
+                type="text"
+                placeholder="Your name"
+                autocomplete="name"
+              />
+              <button type="submit" class="btn primary">Save</button>
+              <button
+                type="button"
+                id="resetName"
+                class="btn ghost"
+                title="Clear saved name"
+              >
+                Reset
+              </button>
+            </div>
+            <small class="help"
+              >Tip: Your name is saved in your browser (localStorage).</small
+            >
+          </form>
+        </div>
+
+        <figure class="hero-art" aria-label="Office banner image">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop"
+            alt="Team collaborating in a bright modern office"
+            loading="eager"
+          />
+        </figure>
+      </div>
+    </main>
+
+    <!-- ===== Our Profile ===== -->
+    <section id="profile" class="section">
+      <div class="container">
+        <h2 class="section-title">Our Profile</h2>
+
+        <div class="cards">
+          <article class="card">
+            <h3>About the Company</h3>
+            <p>
+              Acme Digital adalah perusahaan pengembang perangkat lunak yang
+              berfokus pada solusi web, mobile, dan data. Kami mengutamakan
+              kualitas, keamanan, dan aksesibilitas dalam setiap produk yang
+              kami bangun.
+            </p>
+            <ul class="traits">
+              <li>Founded: 2017</li>
+              <li>Employees: 120+</li>
+              <li>HQ: Jakarta • Remote-first</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Vision</h3>
+            <p>
+              Menjadi mitra teknologi paling tepercaya di Asia Tenggara yang
+              memberdayakan jutaan pengguna lewat software yang bermanfaat dan
+              menyenangkan dipakai.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Mission</h3>
+            <ul class="checklist">
+              <li>Menghadirkan produk yang <em>reliable</em> & aman.</li>
+              <li>Kolaborasi erat dengan stakeholder & pengguna.</li>
+              <li>
+                Mengembangkan talenta melalui budaya belajar berkelanjutan.
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="values-grid">
+          <div>
+            <h4>What we do</h4>
+            <p>
+              Product discovery, design, engineering, QA, and cloud operations.
+            </p>
+          </div>
+          <div>
+            <h4>Tech stack highlights</h4>
+            <p>React • Node.js • TypeScript • Go • Postgres • Kubernetes</p>
+          </div>
+          <div>
+            <h4>Industries</h4>
+            <p>Fintech, e-commerce, education, public sector, & healthcare.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact / Message Us ===== -->
+    <section id="contact" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Message Us</h2>
+
+        <div class="contact-layout">
+          <!-- Form -->
+          <form id="contactForm" class="form" novalidate>
+            <div class="form-row">
+              <label for="fullName"
+                >Name<span aria-hidden="true" class="req">*</span></label
+              >
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="e.g., Siti Rahma"
+                autocomplete="name"
+                required
+              />
+              <small class="error" id="err-fullName" role="alert"></small>
+            </div>
+
+            <div class="form-row">
+              <label for="email"
+                >Email<span aria-hidden="true" class="req">*</span></label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+              <small class="error" id="err-email" role="alert"></small>
+            </div>
+
+            <div class="form-row">
+              <label for="phone"
+                >Phone Number<span aria-hidden="true" class="req"
+                  >*</span
+                ></label
+              >
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="08xxxxxxxxxx"
+                autocomplete="tel"
+                required
+              />
+              <small class="error" id="err-phone" role="alert"></small>
+            </div>
+
+            <div class="form-row">
+              <label for="message"
+                >Message<span aria-hidden="true" class="req">*</span></label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Tell us about your needs..."
+                required
+              ></textarea>
+              <small class="error" id="err-message" role="alert"></small>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn primary">Send Message</button>
+              <button type="reset" class="btn ghost">Reset</button>
+            </div>
+            <p class="tiny">
+              * Required fields. We will never share your data.
+            </p>
+          </form>
+
+          <!-- Output panel -->
+          <aside class="panel" aria-live="polite" aria-atomic="true">
+            <h3>Your Submission</h3>
+            <p class="muted">Form values will appear here after you submit.</p>
+            <dl id="submittedData" class="data-list" hidden>
+              <div>
+                <dt>Name</dt>
+                <dd id="outName"></dd>
+              </div>
+              <div>
+                <dt>Email</dt>
+                <dd id="outEmail"></dd>
+              </div>
+              <div>
+                <dt>Phone</dt>
+                <dd id="outPhone"></dd>
+              </div>
+              <div>
+                <dt>Message</dt>
+                <dd id="outMessage"></dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <p>© <span id="year"></span> Acme Digital. All rights reserved.</p>
+        <nav class="footer-nav">
+          <a href="#home">Home</a>
+          <a href="#profile">Our Profile</a>
+          <a href="#contact">Message Us</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
